@@ -1,0 +1,32 @@
+@baseUrl = http://localhost:5200
+
+### Get all categories
+GET {{baseUrl}}/api/categories
+
+### Create category
+POST {{baseUrl}}/api/categories
+Content-Type: application/json
+
+{
+  "name": "Food"
+}
+
+### Get all expenses
+GET {{baseUrl}}/api/expenses
+
+### Create expense
+POST {{baseUrl}}/api/expenses
+Content-Type: application/json
+
+{
+  "description": "Coffee",
+  "amount": 250,
+  "categoryId": "3fd356e2-e909-439f-88f5-2d75931c6b87",
+  "date": "2026-06-22"
+}
+
+### Get expenses with filters
+GET {{baseUrl}}/api/expenses?dateFrom=2026-06-22&dateTo=2026-06-22&search=coffee&categoryId=3fd356e2-e909-439f-88f5-2d75931c6b87
+
+### Get expenses summary
+GET {{baseUrl}}/api/expenses/summary?dateFrom=2026-06-22&dateTo=2026-06-22
