@@ -54,6 +54,7 @@ dotnet tool install --global dotnet-ef
 Применить миграции:
 
 ```bash
+dotnet restore backend/backend.sln
 dotnet ef database update --project backend/backend/backend.csproj --startup-project backend/backend/backend.csproj
 ```
 
