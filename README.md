@@ -14,6 +14,9 @@
 
 Frontend реализован на React с использованием готовых компонентов **shadcn/ui** и **Tailwind CSS**. Контент приложения разделен на 3 вкладки, чтобы интерфейс был аккуратнее и удобнее для пользователя.
 
+Кнопки удалить и редактировать сделал внутри контекстного меню, всплавающего через ПКМ по элементу.
+<img width="1091" height="359" alt="image" src="https://github.com/user-attachments/assets/7ecdd07b-8409-4796-98c3-52697438c534" />
+
 ## Стек
 
 - **Backend:** ASP.NET Core, Entity Framework Core, PostgreSQL
@@ -51,6 +54,7 @@ dotnet tool install --global dotnet-ef
 Применить миграции:
 
 ```bash
+dotnet restore backend/backend.sln
 dotnet ef database update --project backend/backend/backend.csproj --startup-project backend/backend/backend.csproj
 ```
 
