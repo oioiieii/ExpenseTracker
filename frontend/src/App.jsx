@@ -24,6 +24,7 @@ function App() {
   const [error, setError] = useState(null)
   const [statsRefreshKey, setStatsRefreshKey] = useState(0)
 
+
   const loadExpenses = useCallback(async () => {
     try {
       setIsLoading(true)
@@ -105,7 +106,9 @@ function App() {
     <div className="container mx-auto p-8">
       <h1 className="mb-6 text-2xl font-bold">Трекер расходов</h1>
       <main>
-        <Tabs defaultValue="expenses">
+        <Tabs defaultValue="expenses" onValueChange={() => {
+            setError(null)
+        }}>
           <TabsList variant="line" className="mb-2">
             <TabsTrigger value="expenses">Расходы</TabsTrigger>
             <TabsTrigger value="categories">Категории</TabsTrigger>

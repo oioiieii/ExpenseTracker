@@ -34,7 +34,7 @@ public class TrackerExpensesDbContext: DbContext
                 .IsRequired();
             
             entity.HasOne(e => e.Category)
-                .WithMany()
+                .WithMany() 
                 .HasForeignKey(e => e.CategoryId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);

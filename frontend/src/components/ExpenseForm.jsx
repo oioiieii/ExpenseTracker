@@ -65,7 +65,7 @@ function ExpenseForm({categories, expense, onExpenseSaved, onCancelEdit}) {
                 setCategoryId("")
             }
 
-            await onExpenseSaved({isEditing})
+            await onExpenseSaved()
         } catch (error) {
             setError(error.message)
         } finally {

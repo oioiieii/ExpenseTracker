@@ -27,7 +27,7 @@ export async function getExpenses(filters = {}) {
     const response = await fetch(url)
 
     if (!response.ok) {
-        throw new Error("Не удалось загрузить расходы")
+        throw new Error(await response.text())
     }
 
     return response.json()
@@ -37,7 +37,7 @@ export async function getExpenseById(id) {
     const response = await fetch(`${EXPENSES_URL}/${id}`)
 
     if (!response.ok) {
-        throw new Error("Не удалось загрузить расход")
+        throw new Error(await response.text())
     }
 
     return response.json()
@@ -53,7 +53,7 @@ export async function createExpense(expense) {
     })
 
     if (!response.ok) {
-        throw new Error("Не удалось создать расход")
+        throw new Error(await response.text())
     }
 
     return response.json()
@@ -69,7 +69,7 @@ export async function updateExpense(id, expense) {
     })
 
     if (!response.ok) {
-        throw new Error("Не удалось обновить расход")
+        throw new Error(await response.text())
     }
 }
 
@@ -79,6 +79,6 @@ export async function deleteExpense(id) {
     })
 
     if (!response.ok) {
-        throw new Error("Не удалось удалить расход")
+        throw new Error(await response.text())
     }
 }

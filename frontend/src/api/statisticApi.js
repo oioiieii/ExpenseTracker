@@ -11,7 +11,7 @@ export async function getExpensesSummary(dateFrom, dateTo) {
     const response = await fetch(`${SUMMARY_URL}?${params}`)
 
     if (!response.ok) {
-        throw new Error("Не удалось загрузить статистику")
+        throw new Error(await response.text())
     }
 
     return response.json()

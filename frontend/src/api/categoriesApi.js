@@ -4,7 +4,7 @@ export async function getCategories() {
     const response = await fetch(CATEGORIES_URL)
 
     if (!response.ok) {
-        throw new Error("Не удалось загрузить категории")
+        throw new Error(await response.text())
     }
 
     return response.json()
@@ -14,7 +14,7 @@ export async function getCategoryById(id) {
     const response = await fetch(`${CATEGORIES_URL}/${id}`)
 
     if (!response.ok) {
-        throw new Error("Не удалось загрузить категорию")
+        throw new Error(await response.text())
     }
 
     return response.json()
@@ -30,7 +30,7 @@ export async function createCategory(category) {
     })
 
     if (!response.ok) {
-        throw new Error("Не удалось создать категорию")
+        throw new Error(await response.text())
     }
 
     return response.json()
@@ -46,7 +46,7 @@ export async function updateCategory(id, category) {
     })
 
     if (!response.ok) {
-        throw new Error("Не удалось обновить категорию")
+        throw new Error(await response.text())
     }
 }
 
@@ -56,6 +56,6 @@ export async function deleteCategory(id) {
     })
 
     if (!response.ok) {
-        throw new Error("Не удалось удалить категорию")
+        throw new Error(await response.text())
     }
 }

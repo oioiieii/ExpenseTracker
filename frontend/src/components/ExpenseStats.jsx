@@ -31,7 +31,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import {parseDateOnly} from "@/lib/date"
-import {ScrollArea, ScrollBar} from "@/components/ui/scroll-area"
+import {ScrollArea} from "@/components/ui/scroll-area"
 
 const chartConfig = {
     amount: {
