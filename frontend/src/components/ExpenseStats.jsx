@@ -89,13 +89,17 @@ function ExpenseStats({refreshKey}) {
         }
     }, [dateFrom, dateTo])
 
-    function handlePeriodSelect(period) {
-        if (!period?.from) {
+    const [draftPeriod, setDraftPeriod] = useState({
+        from: dateFrom,
+        to: dateTo,
+    })
+
+    function handleApplyPeriod() {
+        if (!draftPeriod.from) {
             return
         }
-
-        setDateFrom(period.from)
-        setDateTo(period.to ?? period.from)
+        setDateFrom(draftPeriod.from)
+        setDateTo(draftPeriod.to ?? draftPeriod.from)
     }
 
     useEffect(() => {
@@ -188,16 +192,16 @@ function ExpenseStats({refreshKey}) {
                                                 {getPeriodPickerLabel(dateFrom, dateTo)}
                                             </Button>
                                         </PopoverTrigger>
-                                        <PopoverContent className="w-auto p-0">
+                                        <PopoverContent className="w-auto p-0 gap-0">
                                             <Calendar
                                                 mode="range"
-                                                selected={{
-                                                    from: dateFrom,
-                                                    to: dateTo,
-                                                }}
-                                                onSelect={handlePeriodSelect}
+                                                selected={draftPeriod}
+                                                onSelect={setDraftPeriod}
                                                 numberOfMonths={2}
                                             />
+                                            <Button className={"w-fit px-20 my-1 mx-auto mb-3"} onClick={handleApplyPeriod}>
+                                                Применить
+                                            </Button>
                                         </PopoverContent>
                                     </Popover>
                                 </div>
